@@ -26,7 +26,7 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
-            max-width: 500px;
+            max-width: 550px;
             width: 90%;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -128,28 +128,87 @@
             color: #000;
         }
         
-        .instructions {
-            margin-top: 30px;
+        .info-box {
+            margin-top: 25px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             text-align: left;
         }
         
-        .instructions h3 {
+        .info-box h3 {
             font-size: 14px;
             color: #1DB954;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
-        .instructions ol {
+        .info-box ul, .info-box ol {
             font-size: 13px;
             color: #aaa;
             padding-left: 20px;
         }
         
-        .instructions li {
+        .info-box li {
             margin-bottom: 8px;
+        }
+        
+        .permissions-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid rgba(29, 185, 84, 0.3);
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .permissions-box h3 {
+            font-size: 14px;
+            color: #1DB954;
+            margin-bottom: 12px;
+        }
+        
+        .perm-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .perm-icon {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        .perm-yes {
+            color: #1DB954;
+        }
+        
+        .perm-no {
+            color: #888;
+        }
+        
+        .no-access-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .no-access-box h4 {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        
+        .no-access-box ul {
+            font-size: 12px;
+            color: #666;
+            padding-left: 20px;
+        }
+        
+        .no-access-box li {
+            margin-bottom: 5px;
         }
         
         .error-box {
@@ -188,28 +247,85 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        
+        .security-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .security-note a {
+            color: #1DB954;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="https://raw.githubusercontent.com/ParkerSaar/spotify-auth/main/spotifyception-removebg-preview.png" alt="PCX Spotify" style="width: 60px; height: 60px; border-radius: 8px;">
+            <img src="https://raw.githubusercontent.com/ParkerSaar/spotify-auth/main/spotifyception-removebg-preview.png" alt="PCX Spotify" style="width: 80px; height: 80px; border-radius: 8px;">
         </div>
         
-        <h1>PCX Spotify Widget</h1>
-        <p class="subtitle">Connect your Spotify to control playback in PCX</p>
+        <h1>Spotifyception</h1>
+        <p class="subtitle">Control Spotify playback directly from Perception</p>
         
         <div id="login-section">
             <a class="btn btn-spotify" id="login-btn">Connect with Spotify</a>
             
-            <div class="instructions">
-                <h3>What this does:</h3>
+            <div class="permissions-box">
+                <h3>🔒 What this gives PCX access to:</h3>
+                <div class="perm-item perm-yes">
+                    <span class="perm-icon">✓</span>
+                    <span><strong>Play/Pause/Skip</strong> - Control your music playback</span>
+                </div>
+                <div class="perm-item perm-yes">
+                    <span class="perm-icon">✓</span>
+                    <span><strong>Shuffle & Repeat</strong> - Toggle playback modes</span>
+                </div>
+                <div class="perm-item perm-yes">
+                    <span class="perm-icon">✓</span>
+                    <span><strong>Volume Control</strong> - Adjust volume (desktop only)</span>
+                </div>
+                <div class="perm-item perm-yes">
+                    <span class="perm-icon">✓</span>
+                    <span><strong>Now Playing</strong> - See current song, artist & album art</span>
+                </div>
+                <div class="perm-item perm-yes">
+                    <span class="perm-icon">✓</span>
+                    <span><strong>Seek</strong> - Jump to any point in a song</span>
+                </div>
+            </div>
+            
+            <div class="no-access-box">
+                <h4>🚫 What PCX can NOT access:</h4>
+                <ul>
+                    <li>Your email or account details</li>
+                    <li>Your playlists or saved music</li>
+                    <li>Your listening history</li>
+                    <li>Your followers or profile info</li>
+                    <li>Any payment or subscription info</li>
+                    <li>Ability to follow/unfollow or modify your library</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>How it works:</h3>
                 <ol>
-                    <li>You'll log into your Spotify account</li>
-                    <li>Authorize playback control only</li>
-                    <li>Get a token to paste into PCX</li>
-                    <li>Control shuffle & repeat from PCX!</li>
+                    <li>Click "Connect with Spotify" above</li>
+                    <li>Log in to your Spotify account</li>
+                    <li>Spotify will show you the exact permissions - approve them</li>
+                    <li>Copy the token you receive</li>
+                    <li>Paste it into Perception's Spotify widget settings</li>
                 </ol>
+            </div>
+            
+            <div class="security-note">
+                🔐 This uses Spotify's official OAuth 2.0 with PKCE - the most secure authorization method.<br>
+                Your password is never shared with PCX. You can revoke access anytime at <a href="https://www.spotify.com/account/apps/" target="_blank">spotify.com/account/apps</a>
             </div>
         </div>
         
@@ -223,14 +339,20 @@
             <div class="token-value" id="token-value"></div>
             <button class="btn btn-copy" id="copy-btn">Copy Token</button>
             
-            <div class="instructions">
+            <div class="info-box">
                 <h3>Next steps:</h3>
                 <ol>
                     <li>Copy the token above</li>
-                    <li>Open PCX and go to Spotify settings</li>
-                    <li>Paste the token and save</li>
-                    <li>Shuffle & repeat will now work!</li>
+                    <li>Open Perception and go to Spotify tab</li>
+                    <li>Check "Link Spotify Account"</li>
+                    <li>Paste your token and click "Link"</li>
+                    <li>Done! Control Spotify from Perception 🎵</li>
                 </ol>
+            </div>
+            
+            <div class="security-note">
+                🔐 Your token is stored locally on your PC only.<br>
+                To disconnect, visit <a href="https://www.spotify.com/account/apps/" target="_blank">spotify.com/account/apps</a> and remove "PCX Spotify Widget"
             </div>
         </div>
         
