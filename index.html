@@ -19,55 +19,85 @@
             align-items: center;
             justify-content: center;
             color: #fff;
+            padding: 20px;
         }
         
         .container {
             background: #171717;
             border-radius: 14px;
-            padding: 32px;
-            max-width: 480px;
-            width: 90%;
-            text-align: center;
+            padding: 36px;
+            max-width: 900px;
+            width: 100%;
             border: 2px solid #1eb954;
             box-shadow: 0 0 40px rgba(30, 185, 84, 0.15);
         }
         
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #2d2d2d;
+        }
+        
         .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 16px;
+            width: 80px;
+            height: 80px;
             background: #1eb954;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 20px rgba(30, 185, 84, 0.4);
+            flex-shrink: 0;
         }
         
         .logo img {
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             border-radius: 8px;
         }
         
-        h1 {
-            font-size: 22px;
-            margin-bottom: 6px;
+        .header-text {
+            flex: 1;
+        }
+        
+        .header-text h1 {
+            font-size: 26px;
+            margin-bottom: 4px;
             font-weight: 600;
             color: #fff;
         }
         
-        .subtitle {
+        .header-text .subtitle {
             color: #8c8c8c;
-            margin-bottom: 24px;
-            font-size: 13px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(30, 185, 84, 0.1);
+            border: 1px solid rgba(30, 185, 84, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #1eb954;
+        }
+        
+        .badge svg {
+            width: 12px;
+            height: 12px;
         }
         
         .btn {
             display: inline-block;
-            padding: 12px 36px;
+            padding: 14px 40px;
             border-radius: 8px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
@@ -86,9 +116,40 @@
             box-shadow: 0 4px 20px rgba(30, 185, 84, 0.4);
         }
         
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .connect-section {
+            background: #0f0f0f;
+            border-radius: 10px;
+            padding: 24px;
+            border: 1px solid #2d2d2d;
+            text-align: center;
+        }
+        
+        .connect-section p {
+            color: #8c8c8c;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        
         .token-box {
             display: none;
-            margin-top: 24px;
             text-align: left;
         }
         
@@ -135,18 +196,18 @@
         }
         
         .info-box {
-            margin-top: 20px;
-            padding: 16px;
+            padding: 18px;
             background: #0f0f0f;
             border-radius: 10px;
             text-align: left;
             border: 1px solid #2d2d2d;
+            flex: 1;
         }
         
         .info-box h3 {
             font-size: 13px;
             color: #1eb954;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
         
@@ -158,12 +219,15 @@
         
         .info-box li {
             margin-bottom: 6px;
-            line-height: 1.4;
+            line-height: 1.5;
+        }
+        
+        .info-box strong {
+            color: #fff;
         }
         
         .permissions-box {
-            margin-top: 20px;
-            padding: 16px;
+            padding: 18px;
             background: rgba(30, 185, 84, 0.08);
             border: 1px solid rgba(30, 185, 84, 0.25);
             border-radius: 10px;
@@ -177,35 +241,36 @@
             font-weight: 600;
         }
         
+        .perm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
         .perm-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 8px;
             font-size: 12px;
             line-height: 1.4;
         }
         
         .perm-icon {
-            margin-right: 8px;
-            font-size: 14px;
+            margin-right: 6px;
+            font-size: 12px;
             flex-shrink: 0;
-        }
-        
-        .perm-yes {
             color: #1eb954;
         }
         
-        .perm-yes span {
+        .perm-item span {
             color: #b0b0b0;
         }
         
-        .perm-yes strong {
+        .perm-item strong {
             color: #fff;
         }
         
         .no-access-box {
-            margin-top: 16px;
-            padding: 14px;
+            padding: 16px;
             background: #0f0f0f;
             border-radius: 10px;
             text-align: left;
@@ -219,16 +284,17 @@
             font-weight: 600;
         }
         
-        .no-access-box ul {
+        .no-access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4px 16px;
             font-size: 11px;
             color: #555;
-            padding-left: 16px;
-            columns: 2;
-            column-gap: 20px;
         }
         
-        .no-access-box li {
-            margin-bottom: 4px;
+        .no-access-grid span::before {
+            content: "✗ ";
+            color: #444;
         }
         
         .error-box {
@@ -240,6 +306,7 @@
             margin-top: 16px;
             color: #ff6b6b;
             font-size: 13px;
+            grid-column: 1 / -1;
         }
         
         .error-box.show {
@@ -248,7 +315,9 @@
         
         .loading {
             display: none;
-            margin-top: 20px;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
         }
         
         .loading.show {
@@ -275,15 +344,15 @@
         }
         
         .security-note {
-            margin-top: 16px;
-            padding: 12px;
+            grid-column: 1 / -1;
+            padding: 14px;
             background: #0f0f0f;
             border-radius: 8px;
-            font-size: 10px;
+            font-size: 11px;
             color: #555;
             text-align: center;
             border: 1px solid #2d2d2d;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .security-note a {
@@ -295,100 +364,110 @@
             text-decoration: underline;
         }
         
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(30, 185, 84, 0.1);
-            border: 1px solid rgba(30, 185, 84, 0.2);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            color: #1eb954;
-            margin-bottom: 20px;
-        }
-        
-        .badge svg {
-            width: 14px;
-            height: 14px;
-        }
-        
-        .divider {
-            height: 1px;
-            background: #2d2d2d;
-            margin: 20px 0;
+        @media (max-width: 700px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .perm-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .no-access-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/ParkerSaar/spotify-auth/main/spotifyception-removebg-preview.png" alt="Spotifyception">
+        <div class="header">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/ParkerSaar/spotify-auth/main/spotifyception-removebg-preview.png" alt="Spotifyception">
+            </div>
+            <div class="header-text">
+                <h1>Spotifyception</h1>
+                <p class="subtitle">Spotify Widget for Perception.cx</p>
+                <div class="badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    Secure OAuth 2.0 Connection
+                </div>
+            </div>
         </div>
         
-        <h1>Spotifyception</h1>
-        <p class="subtitle">Spotify Widget for Perception.cx</p>
-        
-        <div class="badge">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-            Secure OAuth 2.0 Connection
-        </div>
-        
-        <div id="login-section">
-            <a class="btn btn-spotify" id="login-btn">Connect with Spotify</a>
-            
-            <div class="permissions-box">
-                <h3>✓ What Perception can access:</h3>
-                <div class="perm-item perm-yes">
-                    <span class="perm-icon">✓</span>
-                    <span><strong>Playback Control</strong> — Play, pause, skip, previous</span>
+        <div class="main-content" id="login-section">
+            <div class="left-column">
+                <div class="connect-section">
+                    <p>Connect your Spotify account to control playback directly from Perception</p>
+                    <a class="btn btn-spotify" id="login-btn">Connect with Spotify</a>
                 </div>
-                <div class="perm-item perm-yes">
-                    <span class="perm-icon">✓</span>
-                    <span><strong>Shuffle & Repeat</strong> — Toggle playback modes</span>
-                </div>
-                <div class="perm-item perm-yes">
-                    <span class="perm-icon">✓</span>
-                    <span><strong>Volume</strong> — Adjust volume (desktop app only)</span>
-                </div>
-                <div class="perm-item perm-yes">
-                    <span class="perm-icon">✓</span>
-                    <span><strong>Now Playing</strong> — Song, artist, album art, progress</span>
-                </div>
-                <div class="perm-item perm-yes">
-                    <span class="perm-icon">✓</span>
-                    <span><strong>Seek</strong> — Jump to any position in a track</span>
+                
+                <div class="info-box">
+                    <h3>How to connect:</h3>
+                    <ol>
+                        <li>Click <strong>"Connect with Spotify"</strong> above</li>
+                        <li>Log in with your Spotify account</li>
+                        <li>Review & approve the permissions</li>
+                        <li>Copy the token you'll receive</li>
+                        <li>Paste it in Perception → Spotify → <strong>"Link Spotify Account"</strong></li>
+                    </ol>
                 </div>
             </div>
             
-            <div class="no-access-box">
-                <h4>✗ What Perception cannot access:</h4>
-                <ul>
-                    <li>Email or account info</li>
-                    <li>Playlists or saved songs</li>
-                    <li>Listening history</li>
-                    <li>Payment info</li>
-                    <li>Followers or profile</li>
-                    <li>Library modifications</li>
-                </ul>
-            </div>
-            
-            <div class="divider"></div>
-            
-            <div class="info-box">
-                <h3>How to connect:</h3>
-                <ol>
-                    <li>Click <strong>"Connect with Spotify"</strong> above</li>
-                    <li>Log in with your Spotify account</li>
-                    <li>Review & approve the permissions</li>
-                    <li>Copy the token you'll receive</li>
-                    <li>Paste it in Perception's Spotify settings</li>
-                </ol>
+            <div class="right-column">
+                <div class="permissions-box">
+                    <h3>✓ What Perception can access:</h3>
+                    <div class="perm-grid">
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Play/Pause</strong> — Control playback</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Skip/Previous</strong> — Change tracks</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Shuffle</strong> — Toggle shuffle mode</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Repeat</strong> — Toggle repeat mode</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Volume</strong> — Adjust (desktop only)</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Seek</strong> — Jump in track</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Now Playing</strong> — Song & artist</span>
+                        </div>
+                        <div class="perm-item">
+                            <span class="perm-icon">✓</span>
+                            <span><strong>Album Art</strong> — Display artwork</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="no-access-box">
+                    <h4>✗ What Perception cannot access:</h4>
+                    <div class="no-access-grid">
+                        <span>Email / account</span>
+                        <span>Playlists</span>
+                        <span>Saved songs</span>
+                        <span>Listening history</span>
+                        <span>Payment info</span>
+                        <span>Profile data</span>
+                    </div>
+                </div>
             </div>
             
             <div class="security-note">
-                🔒 Your Spotify password is never shared with Perception.<br>
-                Uses official Spotify OAuth 2.0 with PKCE encryption.<br>
+                🔒 Your Spotify password is <strong>never</strong> shared with Perception. Uses official Spotify OAuth 2.0 with PKCE encryption.<br>
                 Revoke access anytime: <a href="https://www.spotify.com/account/apps/" target="_blank">spotify.com/account/apps</a>
             </div>
         </div>
@@ -398,25 +477,34 @@
             <p>Connecting to Spotify...</p>
         </div>
         
-        <div class="token-box" id="token-box">
-            <div class="token-label">✓ Your Refresh Token:</div>
-            <div class="token-value" id="token-value"></div>
-            <button class="btn btn-copy" id="copy-btn">Copy Token</button>
+        <div class="main-content" id="token-section" style="display: none;">
+            <div class="left-column">
+                <div class="info-box" style="background: rgba(30, 185, 84, 0.08); border-color: rgba(30, 185, 84, 0.25);">
+                    <h3>✓ Connected Successfully!</h3>
+                    <div class="token-box show">
+                        <div class="token-label">Your Refresh Token:</div>
+                        <div class="token-value" id="token-value"></div>
+                        <button class="btn btn-copy" id="copy-btn">Copy Token</button>
+                    </div>
+                </div>
+            </div>
             
-            <div class="info-box">
-                <h3>Final steps:</h3>
-                <ol>
-                    <li>Copy the token above</li>
-                    <li>Open Perception → Spotify tab</li>
-                    <li>Check <strong>"Link Spotify Account"</strong></li>
-                    <li>Paste your token and click <strong>"Link"</strong></li>
-                    <li>You're all set! 🎵</li>
-                </ol>
+            <div class="right-column">
+                <div class="info-box">
+                    <h3>Final steps:</h3>
+                    <ol>
+                        <li>Copy the token on the left</li>
+                        <li>Open Perception</li>
+                        <li>Go to <strong>Spotify</strong> tab</li>
+                        <li>Check <strong>"Link Spotify Account"</strong></li>
+                        <li>Paste your token and click <strong>"Link"</strong></li>
+                        <li>You're all set! 🎵</li>
+                    </ol>
+                </div>
             </div>
             
             <div class="security-note">
-                🔒 Token stored locally on your PC only.<br>
-                To disconnect: <a href="https://www.spotify.com/account/apps/" target="_blank">spotify.com/account/apps</a> → Remove "Spotifyception"
+                🔒 Token stored locally on your PC only. To disconnect: <a href="https://www.spotify.com/account/apps/" target="_blank">spotify.com/account/apps</a> → Remove "Spotifyception"
             </div>
         </div>
         
@@ -483,7 +571,7 @@
                     if (data.refresh_token) {
                         document.getElementById('loading').classList.remove('show');
                         document.getElementById('token-value').textContent = data.refresh_token;
-                        document.getElementById('token-box').classList.add('show');
+                        document.getElementById('token-section').style.display = 'grid';
                         window.history.replaceState({}, document.title, window.location.pathname);
                     } else {
                         showError('Failed to get token: ' + (data.error_description || data.error || 'Unknown error'));
@@ -496,7 +584,7 @@
         
         function showError(message) {
             document.getElementById('loading').classList.remove('show');
-            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('login-section').style.display = 'grid';
             const errorBox = document.getElementById('error-box');
             errorBox.textContent = message;
             errorBox.classList.add('show');
